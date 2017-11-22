@@ -2,9 +2,10 @@
   <div class="container">
     <div class="navbar-menu">
       <div class="navbar-start">
-        <a href="/" class="navbar-item is-tab is-active">Home</a>
-        <a href="/tv" class="navbar-item">TV shows</a>
-        <a href="/contact" class="navbar-item">Contact</a>
+        <a *ngFor="let item of menu"
+           [routerLink]="item.path" routerLinkActive="is-active"
+           [routerLinkActiveOptions]="{exact: item.exact}"
+           class="navbar-item is-tab">{{item.label}}</a>
       </div>
     </div>
   </div>
