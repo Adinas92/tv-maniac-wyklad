@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { Page404Component } from './page404/page404.component';
-
+import {TvModule} from './tv/tv.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { Page404Component } from './page404/page404.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TvModule
   ],
   providers: [],
   bootstrap: [AppComponent]
