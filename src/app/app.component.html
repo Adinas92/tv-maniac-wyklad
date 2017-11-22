@@ -2,10 +2,10 @@
   <div class="container">
     <div class="navbar-menu">
       <div class="navbar-start">
-        <a *ngFor="let item of menu"
+        <a *ngFor="let item of menu; index as i"
            [routerLink]="item.path" routerLinkActive="is-active"
            [routerLinkActiveOptions]="{exact: item.exact}"
-           class="navbar-item is-tab">{{item.label}}</a>
+           class="navbar-item is-tab" [title]="i+1">{{item.label}}</a>
       </div>
     </div>
   </div>
