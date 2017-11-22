@@ -71,7 +71,7 @@ export interface Show {
   network: Network;
   webChannel: WebChannel;
   externals: Externals;
-  image: Image;
+  images: Image;
   summary: string;
   updated: number;
   _links: Links;
@@ -81,4 +81,3 @@ export interface ShowResponse {
   score: number;
   show: Show;
 }
-
