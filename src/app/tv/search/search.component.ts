@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   shows: Show[] = [];
 
   constructor(http: Http) {
-    const url = 'http://api.tvmaze.com/search/shows?q=flash';
+    const url = 'http://api.tvmaze.com/search/shows?q=flas';
     http.get(url)
       .map(response => response.json() as ShowResponse[])
       .map(showResponses => showResponses.map(({show}) => show))
