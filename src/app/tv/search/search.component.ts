@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Http} from '@angular/http';
 import {Show, ShowResponse} from '../tv.models';
 import 'rxjs/add/operator/map';
+import {TvMazeService} from '../tv-maze.service';
 
 // users.map(({username, email}) => ({username, email}));
 
@@ -14,11 +15,8 @@ import 'rxjs/add/operator/map';
 export class SearchComponent implements OnInit {
   shows: Show[] = [];
 
-  constructor(http: Http) {
-    const url = 'http://api.tvmaze.com/search/shows?q=flas';
-    http.get(url)
-      .map(response => response.json() as ShowResponse[])
-      .map(showResponses => showResponses.map(({show}) => show))
+  constructor(private tv: TvMazeService) {
+    this.tv.searchShows('flash')
       .subscribe(shows => this.shows = shows);
   }
 

@@ -3,11 +3,16 @@ import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search/search.component';
 import {HttpModule} from '@angular/http';
 import { PosterComponent } from './poster/poster.component';
+import {TvMazeService} from './tv-maze.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule,
+    HttpClientModule,
+  ],
+  providers: [
+    TvMazeService,
   ],
   declarations: [SearchComponent, PosterComponent]
 })
