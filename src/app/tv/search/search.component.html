@@ -5,5 +5,11 @@
 
   <div class="column">
     <h2 class="subtitle">Find shows</h2>
+
+    <div class="columns is-multiline">
+      <div class="column is-4" *ngFor="let show of shows">
+        <tm-poster [show]="show"></tm-poster>
+      </div>
+    </div>
   </div>
 </div>

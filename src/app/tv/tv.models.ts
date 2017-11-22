@@ -71,7 +71,7 @@ export interface Show {
   network: Network;
   webChannel: WebChannel;
   externals: Externals;
-  images: Image;
+  image: Image;
   summary: string;
   updated: number;
   _links: Links;
