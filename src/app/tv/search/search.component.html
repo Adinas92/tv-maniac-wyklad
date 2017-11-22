@@ -5,14 +5,14 @@
 
   <div class="column">
     <h2 class="subtitle">Find shows</h2>
-    <div class="field has-addons">
+    <form class="field has-addons">
       <div class="control">
-        <input type="search" class="input" #queryRef>
+        <input type="search" name="query" class="input" [(ngModel)]="query">
       </div>
       <div class="control">
-        <button class="button is-primary" (click)="search(queryRef.value)">search</button>
+        <button class="button is-primary" (click)="search(query)">search</button>
       </div>
-    </div>
+    </form>
 
     <div class="columns is-multiline">
       <div class="column is-4" *ngFor="let show of shows">
