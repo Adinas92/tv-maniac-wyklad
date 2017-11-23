@@ -3,6 +3,7 @@ import {Http} from '@angular/http';
 import {Show, ShowResponse} from '../tv.models';
 import 'rxjs/add/operator/map';
 import {TvMazeService} from '../tv-maze.service';
+import {BookmarksService} from '../../bookmarks/bookmarks.service';
 
 // users.map(({username, email}) => ({username, email}));
 
@@ -16,8 +17,11 @@ export class SearchComponent implements OnInit {
   shows: Show[] = [];
   query = 'flash';
 
-  constructor(private tv: TvMazeService) {
+  constructor(private tv: TvMazeService,
+              private bs: BookmarksService) {
     this.search(this.query);
+
+    console.log(this.bs.version);
   }
 
   ngOnInit() {
@@ -26,6 +30,18 @@ export class SearchComponent implements OnInit {
   search(query: string) {
     this.tv.searchShows(query)
       .subscribe(shows => this.shows = shows);
+  }
+
+  saveBookmark(show: Show) {
+    this.bs.add(show);
+  }
+
+  getBookmarks(): Show[] {
+    return this.bs.getAll() as Show[];
+  }
+
+  isBookmarked(show: Show): boolean {
+    return this.bs.has(show.id);
   }
 
 }

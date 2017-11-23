@@ -6,12 +6,14 @@ import { PosterComponent } from './poster/poster.component';
 import {TvMazeService} from './tv-maze.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {BookmarksModule} from '../bookmarks/bookmarks.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
+    BookmarksModule,
   ],
   providers: [
     TvMazeService,
