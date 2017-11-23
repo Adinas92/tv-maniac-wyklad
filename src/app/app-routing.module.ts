@@ -6,6 +6,7 @@ import {Page404Component} from './page404/page404.component';
 import {SearchComponent} from './tv/search/search.component';
 import {ShowDetailsComponent} from './tv/show-details/show-details.component';
 import {ShowDetailsResolver} from './tv/show-details/show-details.resolver';
+import {LoggedInGuard} from './logged-in.guard';
 
 export interface ShowDetailsParams {
   id: string;
@@ -20,7 +21,8 @@ const routes: Routes = [
     component: ShowDetailsComponent,
     resolve: {
       show: ShowDetailsResolver
-    }
+    },
+    // canActivate: [LoggedInGuard]
   },
   // {path: 'user/create', component: ContactComponent},
   // {path: 'user/:id', component: ContactComponent},
@@ -31,6 +33,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {useHash: false})],
   providers: [
     ShowDetailsResolver,
+    LoggedInGuard
   ],
   exports: [RouterModule]
 })
