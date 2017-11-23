@@ -3,7 +3,9 @@
     <h2 class="subtitle">Bookmarks</h2>
     <div class="columns is-multiline">
       <tm-poster *ngFor="let bookmark of getBookmarks()" class="column is-6"
-                [show]="bookmark"></tm-poster>
+                [show]="bookmark">
+        <tm-bookmark-remove [item]="bookmark"></tm-bookmark-remove>
+      </tm-poster>
     </div>
   </div>
 

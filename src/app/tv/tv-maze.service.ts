@@ -16,4 +16,9 @@ export class TvMazeService {
       .map(showResponses => showResponses.map(({show}) => show));
   }
 
+  getShow(id: string): Observable<Show> {
+    const url = `${this.baseUrl}/shows/${id}`;
+    return this.http.get<Show>(url);
+  }
+
 }
