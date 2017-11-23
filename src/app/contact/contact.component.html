@@ -6,15 +6,18 @@
     <div class="field">
       <label for="email" class="label">E-mail</label>
       <div class="control">
-        <input id="email" type="text" class="input is-danger">
+        <input id="email" [class.is-danger]="emailRef.dirty && emailRef.invalid" #emailRef="ngModel" required minlength="3" [(ngModel)]="contact.email" name="email" type="text" class="input">
       </div>
-      <p class="help is-danger">Error!</p>
+      <div class="help is-danger" *ngIf="emailRef.dirty && emailRef.invalid">
+        <p *ngIf="emailRef.errors.required">This field is required</p>
+        <p *ngIf="emailRef.errors.minlength">This field is too short</p>
+      </div>
     </div>
 
     <div class="field">
       <label for="message" class="label">Message</label>
       <div class="control">
-        <textarea id="message" class="textarea is-danger"></textarea>
+        <textarea id="message" minlength="5" [(ngModel)]="contact.message" name="message" class="textarea is-danger"></textarea>
       </div>
       <p class="help is-danger">Error!</p>
     </div>

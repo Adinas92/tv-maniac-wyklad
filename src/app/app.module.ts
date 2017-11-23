@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { Page404Component } from './page404/page404.component';
 import {TvModule} from './tv/tv.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {TvModule} from './tv/tv.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     TvModule
   ],
