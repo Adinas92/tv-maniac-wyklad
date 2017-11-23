@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Show, ShowResponse} from './tv.models';
+import {Show, ShowDetails, ShowResponse} from './tv.models';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
 
@@ -16,9 +16,9 @@ export class TvMazeService {
       .map(showResponses => showResponses.map(({show}) => show));
   }
 
-  getShow(id: string): Observable<Show> {
+  getShow(id: string): Observable<ShowDetails> {
     const url = `${this.baseUrl}/shows/${id}?embed=episodes`;
-    return this.http.get<Show>(url);
+    return this.http.get<ShowDetails>(url);
   }
 
 }

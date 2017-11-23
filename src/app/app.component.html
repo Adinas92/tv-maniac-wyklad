@@ -7,6 +7,9 @@
            [routerLinkActiveOptions]="{exact: item.exact}"
            class="navbar-item is-tab" [title]="i+1">{{item.label}}</a>
       </div>
+      <div class="navbar-end" *ngIf="isLoading">
+        Loading...
+      </div>
     </div>
   </div>
 </nav>

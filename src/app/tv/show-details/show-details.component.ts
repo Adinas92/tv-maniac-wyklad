@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ShowDetailsParams} from '../../app-routing.module';
-import {Show} from '../tv.models';
+import {ShowDetails} from '../tv.models';
 import {TvMazeService} from '../tv-maze.service';
 
 @Component({
@@ -10,14 +10,11 @@ import {TvMazeService} from '../tv-maze.service';
   styleUrls: ['./show-details.component.scss']
 })
 export class ShowDetailsComponent implements OnInit {
-  show: Show;
+  show: ShowDetails;
 
-  constructor(private route: ActivatedRoute,
-              private tv: TvMazeService) {
+  constructor(private route: ActivatedRoute) {
     // this.route.params.subscribe(p => console.log(p));
-    const { id } = this.route.snapshot.params as ShowDetailsParams;
-    this.tv.getShow(id)
-      .subscribe(show => this.show = show);
+    this.show = this.route.snapshot.data.show;
   }
 
   ngOnInit() {
