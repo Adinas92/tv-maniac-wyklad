@@ -3,9 +3,12 @@ import {Http} from '@angular/http';
 import {Show, ShowResponse} from '../tv.models';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/do';
 import {TvMazeService} from '../tv-maze.service';
 import {BookmarksService} from '../../bookmarks/bookmarks.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {startsWithLetterValidator} from '../../shared/validators/starts-with-letter.validator';
 
 // users.map(({username, email}) => ({username, email}));
 
@@ -25,14 +28,19 @@ export class SearchComponent implements OnInit {
               private fb: FormBuilder) {
     this.search(this.query);
 
-    const queryControl = this.fb.control('flash');
+    const queryControl = this.fb.control('flash', [
+      Validators.required,
+      startsWithLetterValidator()
+    ]);
     this.form = this.fb.group({
       query: queryControl
     });
 
     this.form.valueChanges
       .map(({query}) => query)
+      .do((v) => console.log(v, queryControl.errors))
       .debounceTime(200)
+      .filter(() => this.form.valid)
       .subscribe(query => this.search(query));
   }
 
