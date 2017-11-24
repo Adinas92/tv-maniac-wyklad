@@ -6,11 +6,12 @@
     <div class="field">
       <label for="email" class="label">E-mail</label>
       <div class="control">
-        <input id="email" [class.is-danger]="showErrors(emailRef)" #emailRef="ngModel" required minlength="3" [(ngModel)]="contact.email" name="email" type="text" class="input">
+        <input id="email" [tmStartsWithLetter]="false" [class.is-danger]="showErrors(emailRef)" #emailRef="ngModel" required minlength="3" [(ngModel)]="contact.email" name="email" type="text" class="input">
       </div>
       <div class="help is-danger" *ngIf="showErrors(emailRef)">
         <p *ngIf="emailRef.errors.required">This field is required</p>
         <p *ngIf="emailRef.errors.minlength">This field is too short</p>
+        <p *ngIf="emailRef.errors.startsWithLetter">This field should start with letter</p>
       </div>
     </div>
 
