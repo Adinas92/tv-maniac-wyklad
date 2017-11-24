@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Http} from '@angular/http';
 import {Show, ShowResponse} from '../tv.models';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
 import {TvMazeService} from '../tv-maze.service';
 import {BookmarksService} from '../../bookmarks/bookmarks.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
@@ -28,6 +29,11 @@ export class SearchComponent implements OnInit {
     this.form = this.fb.group({
       query: queryControl
     });
+
+    this.form.valueChanges
+      .map(({query}) => query)
+      .debounceTime(200)
+      .subscribe(query => this.search(query));
   }
 
   ngOnInit() {

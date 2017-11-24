@@ -11,12 +11,12 @@
 
   <div class="column">
     <h2 class="subtitle">Find shows</h2>
-    <form class="field has-addons">
+    <form class="field has-addons" [formGroup]="form">
       <div class="control">
-        <input type="search" name="query" class="input" [(ngModel)]="query">
+        <input formControlName="query" type="search" name="query" class="input">
       </div>
       <div class="control">
-        <button class="button is-primary" (click)="search(query)">search</button>
+        <button class="button is-primary" (click)="search(form.value.query)">search</button>
       </div>
     </form>
 
