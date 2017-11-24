@@ -18,6 +18,10 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
   }
 
+  send() {
+    console.log('SEND!');
+  }
+
   showErrors(fieldRef: FormControl): boolean {
     return fieldRef.dirty && fieldRef.invalid;
   }

@@ -26,9 +26,24 @@
 
     <div class="field">
       <div class="control">
-        <button [disabled]="formRef.invalid" class="button is-primary is-pulled-right">Send</button>
+        <button [tmSubmitIfValid]="formRef" (valid)="send()"
+                class="button is-primary is-pulled-right">Send</button>
       </div>
     </div>
+
+    <!--
+    1. generate module `shared`
+    2. in `shared` module generate submit-if-valid directive
+    3. in `app` module import `shared` module
+    4. in shared module export `SubmitIfValidDirective`
+    5. define `form` input  (the type is `FormGroup`)
+    6. define `valid` output
+
+    7. listen to 'click' event on host element and:
+       - iterate over `this.form.controls`
+         and mark all of them as dirty
+       - if form is valid => this.valid.emit()
+    -->
 
   </form>
 

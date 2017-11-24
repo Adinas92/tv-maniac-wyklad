@@ -9,6 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { Page404Component } from './page404/page404.component';
 import {TvModule} from './tv/tv.module';
 import {FormsModule} from '@angular/forms';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    SharedModule,
     TvModule
   ],
   providers: [],
