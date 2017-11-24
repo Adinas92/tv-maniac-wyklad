@@ -36,4 +36,8 @@ export class SearchComponent implements OnInit {
     return this.bs.getAll() as Show[];
   }
 
+  isBookmarked(show: Show) {
+    return this.bs.has(show.id);
+  }
+
 }

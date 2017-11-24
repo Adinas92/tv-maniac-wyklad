@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {BookmarksService} from './bookmarks.service';
 import { BookmarkAddComponent } from './bookmark-add/bookmark-add.component';
 import { BookmarkRemoveComponent } from './bookmark-remove/bookmark-remove.component';
+import { IsBookmarkedDirective } from './is-bookmarked.directive';
 
 @NgModule({
   imports: [
@@ -11,7 +12,15 @@ import { BookmarkRemoveComponent } from './bookmark-remove/bookmark-remove.compo
   providers: [
     BookmarksService
   ],
-  declarations: [BookmarkAddComponent, BookmarkRemoveComponent],
-  exports: [BookmarkAddComponent, BookmarkRemoveComponent]
+  declarations: [
+    BookmarkAddComponent,
+    BookmarkRemoveComponent,
+    IsBookmarkedDirective
+  ],
+  exports: [
+    BookmarkAddComponent,
+    BookmarkRemoveComponent,
+    IsBookmarkedDirective
+  ]
 })
 export class BookmarksModule { }

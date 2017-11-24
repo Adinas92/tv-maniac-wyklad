@@ -22,7 +22,7 @@
 
     <div class="columns is-multiline">
       <div class="column is-4" *ngFor="let show of shows">
-        <tm-poster [show]="show">
+        <tm-poster [show]="show" tmIsBookmarked>
           <tm-bookmark-add [item]="show"></tm-bookmark-add>
           <tm-bookmark-remove [item]="show"></tm-bookmark-remove>
         </tm-poster>
