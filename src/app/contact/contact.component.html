@@ -1,6 +1,6 @@
 <div class="columns">
 
-  <form class="column is-6 is-offset-3">
+  <form #formRef="ngForm" class="column is-6 is-offset-3">
     <h1 class="title">Contact us</h1>
 
     <div class="field">
@@ -26,7 +26,7 @@
 
     <div class="field">
       <div class="control">
-        <button disabled class="button is-primary is-pulled-right">Send</button>
+        <button [disabled]="formRef.invalid" class="button is-primary is-pulled-right">Send</button>
       </div>
     </div>
 
