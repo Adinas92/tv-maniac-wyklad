@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'tm-contact',
@@ -11,9 +12,14 @@ export class ContactComponent implements OnInit {
     message: ''
   };
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  showErrors(fieldRef: FormControl): boolean {
+    return fieldRef.dirty && fieldRef.invalid;
   }
 
 }
